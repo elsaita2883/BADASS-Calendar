@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=target
+comment0.target=java.util.HashMap\ loadReservations(java.io.File)
+comment1.params=target\ map
+comment1.target=void\ saveReservations(java.io.File,\ java.util.HashMap)
+comment2.params=map
+comment2.target=boolean\ validate(java.util.HashMap)
+numComments=3
