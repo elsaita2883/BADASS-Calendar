@@ -34,16 +34,16 @@ public class Period implements Serializable
             throw new IllegalPeriodException("That period number does no exist");
     }
     public int getPeriod(){
-        return period;
+        return this.period;
     }
     public int getDay(){
-        return day;
+        return this.day;
     }
     public int getMonth(){
-        return month;
+        return this.month;
     }
     public int getYear(){
-        return year;
+        return this.year;
     }
     public String toString(){
         return month + "/" + day + "/" + year + "-" + "Period " + period;
@@ -53,10 +53,18 @@ public class Period implements Serializable
         return Integer.parseInt(prehash);
     }
     public boolean equals(Period period2){
-        boolean check = (this.period == period2.period) &&
-                        (this.day == period2.day) &&
-                        (this.month == period2.month) &&
-                        (this.year == period2.year);
-        return check;
+        boolean periodcheck = (this.period == period2.getPeriod());
+        System.out.println(periodcheck);
+        
+        boolean daycheck = (this.day == period2.getDay());
+        System.out.println(daycheck);
+        
+        boolean monthcheck = (this.month == period2.getMonth());
+        System.out.println(monthcheck);
+        
+        boolean yearcheck = (this.year == period2.getYear());
+        System.out.println(yearcheck);
+        
+        return periodcheck && daycheck && monthcheck && yearcheck;
     }
 }
