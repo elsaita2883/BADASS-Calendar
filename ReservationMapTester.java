@@ -1,4 +1,4 @@
-package badass.calendar;
+ 
 
 import java.util.HashMap;
 import java.io.*;
@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Tester
+public class ReservationMapTester
 {
     public static void main(String args[])throws Exception{
         Period pr = new Period(2016,5,9,3);
@@ -40,6 +40,8 @@ public class Tester
             boolean get = map2.containsKey(pr);
             //get the data corresponding to the key
             System.out.println(get);
+            Reservation reserved = map2.get(pr);
+            System.out.println("Reservation: " + reserved);
             System.out.println(map2);
         }
     }

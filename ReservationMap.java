@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package badass.calendar;
+ 
 
 import java.util.HashMap;
 
@@ -23,9 +23,6 @@ public class ReservationMap extends HashMap{
             }
         }
         return null;
-    }
-    public void put(Period key, Reservation value){
-        super.put(key, value);
     }
     public boolean containsKey(Period key){
         for (Object k : super.keySet()){
