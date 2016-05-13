@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=firstDay
+comment0.target=Week(Day)
+comment1.params=index
+comment1.target=Day\ getDay(int)
+comment2.params=index
+comment2.target=java.lang.String\ getDayName(int)
+comment3.params=g2
+comment3.target=void\ draw(java.awt.Graphics2D)
+numComments=4

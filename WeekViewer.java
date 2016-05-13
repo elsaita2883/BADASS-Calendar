@@ -19,7 +19,7 @@ public class WeekViewer {
         //Set up frame
         JFrame frame = new JFrame();
         frame.setSize(1000,1000);
-        frame.setTitle("A House");
+        frame.setTitle("BADASS Calendar");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         //Make and add WeekComponent to JFrame

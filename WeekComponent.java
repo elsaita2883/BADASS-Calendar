@@ -20,7 +20,7 @@ public class WeekComponent extends JComponent{
         Graphics2D g2 = (Graphics2D) g;
         //Create a house object
         int i = 0;
-        Day newYear = new Day(2,15,2001);
+        Day newYear = new Day(15,2,2001);
         Week week = new Week(newYear);
         //Draw that object
         week.draw(g2);
