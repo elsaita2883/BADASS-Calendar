@@ -6,7 +6,7 @@ import java.io.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GUI
+public class JasonTester
 {
     public static void main(String args[])throws Exception{
         Period pr = new Period(2016,5,9,3);
