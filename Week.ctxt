@@ -1,10 +1,11 @@
 #BlueJ class context
-comment0.params=firstDay
-comment0.target=Week(Day)
-comment1.params=index
-comment1.target=Day\ getDay(int)
+comment0.params=
+comment0.target=Week()
+comment1.params=
+comment1.target=Period[][]\ getPeriods()
 comment2.params=index
 comment2.target=java.lang.String\ getDayName(int)
+comment2.text=\r\n\ \ \ \ private\ final\ Day[]\ days\ \=\ new\ Day[5];\r\n\ \ \ \ \r\n\ \ \ \ public\ Week(Day\ firstDay){\r\n\ \ \ \ \ \ \ \ days[0]\ \=\ firstDay;\r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 1;\ i\ <\ 5;\ i++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ Day\ day\ \=\ new\ Day(firstDay.getDay()+i,firstDay.getMonth(),firstDay.getYear());\r\n\ \ \ \ \ \ \ \ \ \ \ \ days[i]\ \=\ day;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ public\ Day\ getDay(int\ index){\r\n\ \ \ \ \ \ \ \ return\ days[index];\r\n\ \ \ \ }\r\n
 comment3.params=g2
 comment3.target=void\ draw(java.awt.Graphics2D)
 numComments=4
