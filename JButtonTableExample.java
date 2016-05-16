@@ -118,6 +118,8 @@ class ButtonEditor extends DefaultCellEditor {
         if(label.equals("OPEN")){      
             String name = JOptionPane.showInputDialog("What's your name?");
             String className = JOptionPane.showInputDialog("What's your class name?");
+            Reservation reserved = new Reservation(name, className);
+            Period
             label = name + "  " + className;                                
         } else {
             //String name = JOptionPane.showInputDialog("Do you want to cancel this reservation?");
