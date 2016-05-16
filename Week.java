@@ -7,6 +7,7 @@
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -31,6 +32,32 @@ public class Week {
             init.add(Calendar.DAY_OF_MONTH,1);
         }
     }
+
+    Week(Day newYear) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void nextWeek(){
+        //TODO : Will switch the week to next week of current week
+        //init.add(Calendar.DAY_OF_MONTH, 7);
+    }
+    
+    public void previousWeek(){
+        //TODO: Will switch the week to previous week of current week
+    }
+    
+    public String getStartDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
+        String str = sdf.format(days[0].getTime());
+        return str;
+    }
+    
+    public String getEndDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
+        String str = sdf.format(days[4].getTime());
+        return str;
+    }
+    
     //returns an array of Period[day][period]
     public Period[][] getPeriods() throws PeriodException{
         Period[][] week = new Period[5][8];
