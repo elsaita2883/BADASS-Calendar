@@ -17,7 +17,6 @@ import java.util.GregorianCalendar;
  */
 public class Week {
     private GregorianCalendar[] days;
-    
     //creates the current week
     public Week(){
         this.days  = new GregorianCalendar[5];
@@ -33,17 +32,22 @@ public class Week {
         }
     }
 
-    Week(Day newYear) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public void nextWeek(){
-        //TODO : Will switch the week to next week of current week
-        //init.add(Calendar.DAY_OF_MONTH, 7);
+        GregorianCalendar init;
+        for(int i = 0;i < days.length;i++){
+            init = (GregorianCalendar) days[i];
+            init.add(Calendar.DAY_OF_MONTH, 7);
+            days[i] = init;
+        }
     }
     
     public void previousWeek(){
-        //TODO: Will switch the week to previous week of current week
+        GregorianCalendar init;
+        for(int i = 0;i < days.length;i++){
+            init = (GregorianCalendar) days[i];
+            init.add(Calendar.DAY_OF_MONTH, -7);
+            days[i] = init;
+        }
     }
     
     public String getStartDate(){
@@ -73,20 +77,6 @@ public class Week {
         }
         return week;
     }
-    /*
-    private final Day[] days = new Day[5];
-    
-    public Week(Day firstDay){
-        days[0] = firstDay;
-        for (int i = 1; i < 5; i++){
-            Day day = new Day(firstDay.getDay()+i,firstDay.getMonth(),firstDay.getYear());
-            days[i] = day;
-        }
-    }
-    public Day getDay(int index){
-        return days[index];
-    }
-    */
     public String getDayName(int index){
         switch(index){
             case 2:
@@ -96,27 +86,11 @@ public class Week {
             case 4:
                 return "Wednesday";
             case 5:
-                return "Thursday";
+                return "Thursday"; 
             case 6:
                 return "Friday";
                 
         }
         return "";
-    }
-    public void draw(Graphics2D g2){
-        for (int i = 0; i < 5; i++){
-            Rectangle dayName = new Rectangle(200 + 100*i,200,100,50);
-            g2.draw(dayName);
-            g2.drawString(getDayName(i+2),dayName.x + 20, dayName.y + 20);
-            g2.drawString(days[i].toString(),dayName.x + 20, dayName.y + 40);
-        }
-        for(int i = 0; i < 5; i++){
-            Calendar day = days[i];
-            for (int j = 0; j < 8; j++){
-                Rectangle period = new Rectangle(200 + 100*i, 250 + 50*j,100,50);
-                g2.draw(period);
-                g2.drawString((j+1) + "", period.x + 20, period.y + 20);
-            }
-        }
     }
 }

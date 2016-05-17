@@ -9,23 +9,20 @@ import java.io.*;
  */
 public class DatabaseManager
 {
-    public static HashMap<Period,Reservation> loadReservations(File target)throws IOException,ClassNotFoundException{
+    public static HashMap<Period,Reservation> reservationmap;
+    public static void loadReservations(File target)throws IOException,ClassNotFoundException{
         FileInputStream fin = new FileInputStream(target);
         ObjectInputStream ois = new ObjectInputStream(fin);
         HashMap<Period,Reservation> map = (HashMap<Period,Reservation>) ois.readObject();
         ois.close();
         fin.close();
-        return map;
+        reservationmap = map;
     }
-    public static void saveReservations(File target, HashMap<Period,Reservation> map)throws IOException{ 
+    public static void saveReservations(File target)throws IOException{ 
         FileOutputStream fout = new FileOutputStream(target);
         ObjectOutputStream oos = new ObjectOutputStream(fout);
-        oos.writeObject(map);
+        oos.writeObject(reservationmap);
         oos.close();
         fout.close();
-    }
-    private static boolean validate(HashMap<Period,Reservation> map){
-        
-        return true;
     }
 }

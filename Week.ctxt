@@ -1,21 +1,19 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Week()
-comment1.params=newYear
-comment1.target=Week(Day)
+comment1.params=
+comment1.target=void\ nextWeek()
 comment2.params=
-comment2.target=void\ nextWeek()
+comment2.target=void\ previousWeek()
 comment3.params=
-comment3.target=void\ previousWeek()
+comment3.target=java.lang.String\ getStartDate()
 comment4.params=
-comment4.target=java.lang.String\ getStartDate()
+comment4.target=java.lang.String\ getEndDate()
 comment5.params=
-comment5.target=java.lang.String\ getEndDate()
-comment6.params=
-comment6.target=Period[][]\ getPeriods()
-comment7.params=index
-comment7.target=java.lang.String\ getDayName(int)
-comment7.text=\r\n\ \ \ \ private\ final\ Day[]\ days\ \=\ new\ Day[5];\r\n\ \ \ \ \r\n\ \ \ \ public\ Week(Day\ firstDay){\r\n\ \ \ \ \ \ \ \ days[0]\ \=\ firstDay;\r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 1;\ i\ <\ 5;\ i++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ Day\ day\ \=\ new\ Day(firstDay.getDay()+i,firstDay.getMonth(),firstDay.getYear());\r\n\ \ \ \ \ \ \ \ \ \ \ \ days[i]\ \=\ day;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ public\ Day\ getDay(int\ index){\r\n\ \ \ \ \ \ \ \ return\ days[index];\r\n\ \ \ \ }\r\n
-comment8.params=g2
-comment8.target=void\ draw(java.awt.Graphics2D)
-numComments=9
+comment5.target=Period[][]\ getPeriods()
+comment6.params=index
+comment6.target=java.lang.String\ getDayName(int)
+comment6.text=\r\n\ \ \ \ private\ final\ Day[]\ days\ \=\ new\ Day[5];\r\n\ \ \ \ \r\n\ \ \ \ public\ Week(Day\ firstDay){\r\n\ \ \ \ \ \ \ \ days[0]\ \=\ firstDay;\r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 1;\ i\ <\ 5;\ i++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ Day\ day\ \=\ new\ Day(firstDay.getDay()+i,firstDay.getMonth(),firstDay.getYear());\r\n\ \ \ \ \ \ \ \ \ \ \ \ days[i]\ \=\ day;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ public\ Day\ getDay(int\ index){\r\n\ \ \ \ \ \ \ \ return\ days[index];\r\n\ \ \ \ }\r\n
+comment7.params=g2
+comment7.target=void\ draw(java.awt.Graphics2D)
+numComments=8

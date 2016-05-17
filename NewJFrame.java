@@ -19,8 +19,9 @@ public class NewJFrame extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public NewJFrame() {
+        pr = week.getPeriods();
         initComponents();
-       jTable1.getColumn("Monday").setCellRenderer(new ButtonRenderer());
+        jTable1.getColumn("Monday").setCellRenderer(new ButtonRenderer());
         jTable1.getColumn("Monday").setCellEditor(
         new ButtonEditor(new JCheckBox()));
         jTable1.getColumn("Tuesday").setCellRenderer(new ButtonRenderer());
@@ -40,8 +41,6 @@ public class NewJFrame extends javax.swing.JFrame {
         
                     
         try {
-            Period[][] pr;        
-            pr = week.getPeriods();
             for(int i = 0;i<pr.length;i++){
                 for(int c = 0;c < pr[i].length; c++){
                    if(map.get(pr[i][c])== null){
@@ -161,11 +160,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void nextWeekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextWeekButtonActionPerformed
         /* Replace following method with call to getPeriod for next week*/
-        weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
         week.nextWeek();
+        pr = week.getPeriods();
+        weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
         try {
-            Period[][] pr;        
-            pr = week.getPeriods();
             for(int i = 0;i<pr.length;i++){
                 for(int c = 0;c < pr[i].length; c++){
                    if(map.get(pr[i][c])== null){
@@ -183,7 +181,24 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_nextWeekButtonActionPerformed
 
     private void previousWeekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousWeekButtonActionPerformed
-        // TODO add your handling code here:
+        week.previousWeek();
+        pr = week.getPeriods();
+        weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
+        try {
+            for(int i = 0;i<pr.length;i++){
+                for(int c = 0;c < pr[i].length; c++){
+                   if(map.get(pr[i][c])== null){
+                    jTable1.getModel().setValueAt("OPEN", c, i+1); 
+                   }
+                   else{
+                     jTable1.getModel().setValueAt(pr[i][c],c,i+1);
+                   }
+                }
+
+            }
+        } catch (PeriodException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_previousWeekButtonActionPerformed
 
     /**
@@ -232,4 +247,5 @@ public class NewJFrame extends javax.swing.JFrame {
     //This attribute will manage the week displayed to user
     Week week = new Week();
     ReservationMap map = new ReservationMap();
+    Period[][] pr = new Period[5][8];
 }
