@@ -54,16 +54,16 @@ public class Period implements Serializable
     }
     public boolean equals(Period period2){
         boolean periodcheck = (this.period == period2.getPeriod());
-        System.out.println(periodcheck);
+        //System.out.println(periodcheck);
         
         boolean daycheck = (this.day == period2.getDay());
-        System.out.println(daycheck);
+        //System.out.println(daycheck);
         
         boolean monthcheck = (this.month == period2.getMonth());
-        System.out.println(monthcheck);
+        //System.out.println(monthcheck);
         
         boolean yearcheck = (this.year == period2.getYear());
-        System.out.println(yearcheck);
+        //System.out.println(yearcheck);
         
         return periodcheck && daycheck && monthcheck && yearcheck;
     }
