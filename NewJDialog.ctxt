@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.params=parent\ modal
 comment0.target=NewJDialog(java.awt.Frame,\ boolean)
-comment0.text=\n\ Creates\ new\ form\ NewJDialog\n
+comment0.text=\r\n\ Creates\ new\ form\ NewJDialog\r\n
 comment1.params=
 comment1.target=void\ initComponents()
-comment1.text=\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\n\ regenerated\ by\ the\ Form\ Editor.\n
+comment1.text=\r\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\r\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\r\n\ regenerated\ by\ the\ Form\ Editor.\r\n
 comment10.params=e
 comment10.target=void\ windowClosing(java.awt.event.WindowEvent)
 comment2.params=evt
@@ -21,7 +21,7 @@ comment7.params=evt
 comment7.target=void\ jButton2MouseClicked(java.awt.event.MouseEvent)
 comment8.params=args
 comment8.target=void\ main(java.lang.String[])
-comment8.text=\n\ @param\ args\ the\ command\ line\ arguments\n
+comment8.text=\r\n\ @param\ args\ the\ command\ line\ arguments\r\n
 comment9.params=
 comment9.target=void\ run()
 numComments=11
