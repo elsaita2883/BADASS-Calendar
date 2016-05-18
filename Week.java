@@ -63,7 +63,7 @@ public class Week {
     }
     
     //returns an array of Period[day][period]
-    public Period[][] getPeriods() throws PeriodException{
+    public Period[][] getPeriods() {
         Period[][] week = new Period[5][8];
         for(int d = 0; d < days.length; d++){
             for(int p = 0;p < 8;p++){

@@ -40,10 +40,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jTable1.repaint();
         
                     
-        try {
+    
             for(int i = 0;i<pr.length;i++){
                 for(int c = 0;c < pr[i].length; c++){
-                   if(map.get(pr[i][c])== null){
+                   if(DatabaseManager.reservationmap.get(pr[i][c])== null){
                     jTable1.getModel().setValueAt("OPEN", c, i+1); 
                    }
                    else{
@@ -52,9 +52,6 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
 
             }
-        } catch (PeriodException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
     }
 
@@ -74,8 +71,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         weekLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addActionListener(new CloseListener());
+        
         nextWeekButton.setText("Next");
         nextWeekButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,10 +161,10 @@ public class NewJFrame extends javax.swing.JFrame {
         week.nextWeek();
         pr = week.getPeriods();
         weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
-        try {
+        
             for(int i = 0;i<pr.length;i++){
                 for(int c = 0;c < pr[i].length; c++){
-                   if(map.get(pr[i][c])== null){
+                   if(DatabaseManager.reservationmap.get(pr[i][c])== null){
                     jTable1.getModel().setValueAt("OPEN", c, i+1); 
                    }
                    else{
@@ -175,19 +173,18 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
 
             }
-        } catch (PeriodException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        
+               
     }//GEN-LAST:event_nextWeekButtonActionPerformed
 
     private void previousWeekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousWeekButtonActionPerformed
         week.previousWeek();
         pr = week.getPeriods();
         weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
-        try {
+       
             for(int i = 0;i<pr.length;i++){
                 for(int c = 0;c < pr[i].length; c++){
-                   if(map.get(pr[i][c])== null){
+                   if(DatabaseManager.reservationmap.get(pr[i][c])== null){
                     jTable1.getModel().setValueAt("OPEN", c, i+1); 
                    }
                    else{
@@ -196,15 +193,13 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
 
             }
-        } catch (PeriodException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_previousWeekButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void startGUI() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -246,6 +241,6 @@ public class NewJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     //This attribute will manage the week displayed to user
     Week week = new Week();
-    ReservationMap map = new ReservationMap();
+    //ReservationMap map = new ReservationMap();
     Period[][] pr = new Period[5][8];
 }

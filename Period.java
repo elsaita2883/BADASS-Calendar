@@ -16,7 +16,7 @@ public class Period implements Serializable
     /**
      * Constructor for objects of class Period
      */
-    public Period(int myYear, int myMonth, int myDay, int myPeriod)throws PeriodException
+    public Period(int myYear, int myMonth, int myDay, int myPeriod)
     {
         /*
         Date today = new Date();
@@ -28,10 +28,7 @@ public class Period implements Serializable
         year = myYear;
         month = myMonth;
         day = myDay;
-        if(myPeriod<9 && myPeriod >0)
-            period=myPeriod;
-        else
-            throw new IllegalPeriodException("That period number does no exist");
+        
     }
     public int getPeriod(){
         return this.period;
