@@ -22,7 +22,6 @@ public class ReservationMapTester
                 {
                     Reservation rs = new Reservation("Byron Webb", "AP Computer Science");
                     ReservationMap map = new ReservationMap();
-                    //HashMap<Period,Reservation> map= new HashMap<Period,Reservation>();
                     map.put(pr,rs);
                     File fl = new File("mapstorage.ser");
                     fl.createNewFile();
@@ -30,7 +29,6 @@ public class ReservationMapTester
                     System.out.println(get);
                     System.out.println(map);
                     DatabaseManager.saveReservations(fl,map);
-                    WeekViewer view = new WeekViewer();
                     break;
                 }
             case "load":
