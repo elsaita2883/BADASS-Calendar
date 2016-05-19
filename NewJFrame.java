@@ -1,7 +1,13 @@
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.table.TableCellRenderer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -43,11 +49,11 @@ public class NewJFrame extends javax.swing.JFrame {
     
             for(int i = 0;i<pr.length;i++){
                 for(int c = 0;c < pr[i].length; c++){
-                   if(DatabaseManager.reservationmap.get(pr[i][c])== null){
-                    jTable1.getModel().setValueAt("OPEN", c, i+1); 
+                   if(pr[i][c].hasReservation()){
+                       jTable1.getModel().setValueAt(pr[i][c],c,i+1); 
                    }
                    else{
-                     jTable1.getModel().setValueAt(pr[i][c],c,i+1);
+                       jTable1.getModel().setValueAt("OPEN", c, i+1);
                    }
                 }
 
@@ -71,8 +77,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         weekLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addActionListener(new CloseListener());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        //addActionListener(new CloseListener());
         
         nextWeekButton.setText("Next");
         nextWeekButton.addActionListener(new java.awt.event.ActionListener() {
@@ -164,14 +171,13 @@ public class NewJFrame extends javax.swing.JFrame {
         
             for(int i = 0;i<pr.length;i++){
                 for(int c = 0;c < pr[i].length; c++){
-                   if(DatabaseManager.reservationmap.get(pr[i][c])== null){
-                    jTable1.getModel().setValueAt("OPEN", c, i+1); 
+                   if(pr[i][c].hasReservation()){
+                       jTable1.getModel().setValueAt(pr[i][c],c,i+1); 
                    }
                    else{
-                     jTable1.getModel().setValueAt(pr[i][c],c,i+1);
+                       jTable1.getModel().setValueAt("OPEN", c, i+1);
                    }
                 }
-
             }
         
                
@@ -184,14 +190,13 @@ public class NewJFrame extends javax.swing.JFrame {
        
             for(int i = 0;i<pr.length;i++){
                 for(int c = 0;c < pr[i].length; c++){
-                   if(DatabaseManager.reservationmap.get(pr[i][c])== null){
-                    jTable1.getModel().setValueAt("OPEN", c, i+1); 
+                   if(pr[i][c].hasReservation()){
+                       jTable1.getModel().setValueAt(pr[i][c],c,i+1); 
                    }
                    else{
-                     jTable1.getModel().setValueAt(pr[i][c],c,i+1);
+                       jTable1.getModel().setValueAt("OPEN", c, i+1);
                    }
                 }
-
             }
         
     }//GEN-LAST:event_previousWeekButtonActionPerformed
@@ -244,3 +249,40 @@ public class NewJFrame extends javax.swing.JFrame {
     //ReservationMap map = new ReservationMap();
     Period[][] pr = new Period[5][8];
 }
+/**class ButtonRenderer extends JButton implements TableCellRenderer {
+
+  public ButtonRenderer() {
+    setOpaque(true);
+  }
+
+  public Component getTableCellRendererComponent(JTable table, Object value,
+      boolean isSelected, boolean hasFocus, int row, int column) {
+    if (isSelected) {
+      setForeground(table.getSelectionForeground());
+      setBackground(table.getSelectionBackground());
+    } else {
+      setForeground(table.getForeground());
+      setBackground(UIManager.getColor("Button.background"));
+    }
+    setText((value == null) ? "" : value.toString());
+    return this;
+  }
+}*/
+/**class ButtonEditor extends DefaultCellEditor {
+  protected JButton button;
+
+  private String label;
+
+  private boolean isPushed;
+
+  public ButtonEditor(JCheckBox checkBox) {
+    super(checkBox);
+    button = new JButton();
+    button.setOpaque(true);
+    button.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        fireEditingStopped();
+      }
+    });
+  }
+}*/
