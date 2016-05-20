@@ -12,6 +12,7 @@ public class Period implements Serializable
     private int year;
     private int month;
     private int day;
+    private Reservation reservation;
     
     /**
      * Constructor for objects of class Period
@@ -28,7 +29,20 @@ public class Period implements Serializable
         year = myYear;
         month = myMonth;
         day = myDay;
+        period = myPeriod;
         
+    }
+    public boolean hasReservation(){
+        return reservation != null;
+    }
+    public Reservation getReservation(){
+        return reservation;
+    }
+    public void addReservation(String name, String className){
+        reservation = new Reservation(name, className);
+    }
+    public void addReservation(Reservation r){
+        reservation = r;
     }
     public int getPeriod(){
         return this.period;

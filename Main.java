@@ -1,24 +1,13 @@
- 
-
-import java.util.HashMap;
-import java.io.*;
-import java.util.Scanner;
-/**
- * Write a description of class Tester here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Main
 {
     public static void main(String args[])throws Exception{
-        File fl = new File("map.ser"); 
-        try{
-            DatabaseManager.loadReservations(fl);
-        }catch(IOException ex){
-            ReservationMap map = new ReservationMap();
-            DatabaseManager.reservationmap = map;
-            DatabaseManager.saveReservations(fl);
-        }
+        DatabaseManager.saveReservations();
+        Period pr = new Period(2016,5,18,3);
+        Reservation resrv = new Reservation("Haga", "AP English IV");
+        pr.addReservation(resrv);
+        DatabaseManager.loadReservations();
+        DatabaseManager.reservationmap.put(pr, resrv);
+        NewJFrame frame = new NewJFrame();
+        frame.setVisible(true);
     }
 }
