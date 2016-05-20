@@ -1,3 +1,5 @@
+package badass.calendar;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,6 +25,14 @@ public class ReservationMap extends HashMap{
             }
         }
         return null;
+    }
+    public void remove(Period pr){
+        for(Object k: super.keySet()){
+            Period key = (Period) k;
+            if(pr.equals(key)){
+                super.remove(k);
+            }
+        }
     }
     public boolean containsKey(Period key){
         for (Object k : super.keySet()){

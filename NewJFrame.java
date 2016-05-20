@@ -1,13 +1,9 @@
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JButton;
+package badass.calendar;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
-import javax.swing.JTable;
-import javax.swing.UIManager;
-import javax.swing.table.TableCellRenderer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,40 +23,25 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         pr = week.getPeriods();
         initComponents();
-        jTable1.getColumn("Monday").setCellRenderer(new ButtonRenderer());
-        jTable1.getColumn("Monday").setCellEditor(
-        new ButtonEditor(new JCheckBox()));
-        jTable1.getColumn("Tuesday").setCellRenderer(new ButtonRenderer());
-        jTable1.getColumn("Tuesday").setCellEditor(
-        new ButtonEditor(new JCheckBox()));
-        jTable1.getColumn("Wednesday").setCellRenderer(new ButtonRenderer());
-        jTable1.getColumn("Wednesday").setCellEditor(
-        new ButtonEditor(new JCheckBox()));
-        jTable1.getColumn("Thursday").setCellRenderer(new ButtonRenderer());
-        jTable1.getColumn("Thursday").setCellEditor(
-        new ButtonEditor(new JCheckBox()));
-        jTable1.getColumn("Friday").setCellRenderer(new ButtonRenderer());
-        jTable1.getColumn("Friday").setCellEditor(
-        new ButtonEditor(new JCheckBox()));
+        for (int i = 2; i < 7; i++){
+            jTable1.getColumn(week.getDayName(i)).setCellRenderer(new ButtonRenderer());
+            jTable1.getColumn(week.getDayName(i)).setCellEditor(
+            new ButtonEditor(new JCheckBox(),pr));            
+        }
         jTable1.getColumn("Period").setWidth(5);
         jTable1.repaint();
-        
-                    
-    
-            for(int i = 0;i<pr.length;i++){
-                for(int c = 0;c < pr[i].length; c++){
-                   if(pr[i][c].hasReservation()){
-                       jTable1.getModel().setValueAt(pr[i][c],c,i+1); 
-                   }
-                   else{
-                       jTable1.getModel().setValueAt("OPEN", c, i+1);
-                   }
-                }
-
-            }
-
+        loadLabels();
     }
-
+    public int saveOnClose(){
+        try {
+            DatabaseManager.saveReservations();
+            System.out.println("Reservations Saved");
+        } catch (IOException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            return JFrame.EXIT_ON_CLOSE;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,9 +58,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         weekLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        //addActionListener(new CloseListener());
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new CloseListener());
         
         nextWeekButton.setText("Next");
         nextWeekButton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +80,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Button1", null, null, null, null},
+                {"1", null, null, null, null, null},
                 {"2", null, null, null, null, null},
                 {"3", null, null, null, null, null},
                 {"4", null, null, null, null, null},
@@ -162,23 +142,24 @@ public class NewJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void loadLabels(){
+        for(int i = 0;i<pr.length;i++){
+            for(int c = 0;c < pr[i].length; c++){
+                if(pr[i][c].hasReservation()){
+                    String label = DatabaseManager.reservationmap.get(pr[i][c]).toString();
+                    jTable1.getModel().setValueAt(label,c,i+1);
+                }else{
+                    jTable1.getModel().setValueAt("OPEN", c, i+1);
+                }
+            }
+        }
+    }
     private void nextWeekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextWeekButtonActionPerformed
         /* Replace following method with call to getPeriod for next week*/
         week.nextWeek();
         pr = week.getPeriods();
         weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
-        
-            for(int i = 0;i<pr.length;i++){
-                for(int c = 0;c < pr[i].length; c++){
-                   if(pr[i][c].hasReservation()){
-                       jTable1.getModel().setValueAt(pr[i][c],c,i+1); 
-                   }
-                   else{
-                       jTable1.getModel().setValueAt("OPEN", c, i+1);
-                   }
-                }
-            }
+        loadLabels();
         
                
     }//GEN-LAST:event_nextWeekButtonActionPerformed
@@ -187,18 +168,7 @@ public class NewJFrame extends javax.swing.JFrame {
         week.previousWeek();
         pr = week.getPeriods();
         weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
-       
-            for(int i = 0;i<pr.length;i++){
-                for(int c = 0;c < pr[i].length; c++){
-                   if(pr[i][c].hasReservation()){
-                       jTable1.getModel().setValueAt(pr[i][c],c,i+1); 
-                   }
-                   else{
-                       jTable1.getModel().setValueAt("OPEN", c, i+1);
-                   }
-                }
-            }
-        
+        loadLabels();
     }//GEN-LAST:event_previousWeekButtonActionPerformed
 
     /**
@@ -239,7 +209,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JButton nextWeekButton;
     private javax.swing.JButton previousWeekButton;
     private javax.swing.JLabel weekLabel;
@@ -249,40 +219,4 @@ public class NewJFrame extends javax.swing.JFrame {
     //ReservationMap map = new ReservationMap();
     Period[][] pr = new Period[5][8];
 }
-/**class ButtonRenderer extends JButton implements TableCellRenderer {
 
-  public ButtonRenderer() {
-    setOpaque(true);
-  }
-
-  public Component getTableCellRendererComponent(JTable table, Object value,
-      boolean isSelected, boolean hasFocus, int row, int column) {
-    if (isSelected) {
-      setForeground(table.getSelectionForeground());
-      setBackground(table.getSelectionBackground());
-    } else {
-      setForeground(table.getForeground());
-      setBackground(UIManager.getColor("Button.background"));
-    }
-    setText((value == null) ? "" : value.toString());
-    return this;
-  }
-}*/
-/**class ButtonEditor extends DefaultCellEditor {
-  protected JButton button;
-
-  private String label;
-
-  private boolean isPushed;
-
-  public ButtonEditor(JCheckBox checkBox) {
-    super(checkBox);
-    button = new JButton();
-    button.setOpaque(true);
-    button.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        fireEditingStopped();
-      }
-    });
-  }
-}*/

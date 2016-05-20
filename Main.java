@@ -1,13 +1,19 @@
+package badass.calendar; 
+/**
+ * Write a description of class Tester here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
 public class Main
 {
     public static void main(String args[])throws Exception{
-        DatabaseManager.saveReservations();
-        Period pr = new Period(2016,5,18,3);
-        Reservation resrv = new Reservation("Haga", "AP English IV");
-        pr.addReservation(resrv);
         DatabaseManager.loadReservations();
-        DatabaseManager.reservationmap.put(pr, resrv);
+        for(Object key : DatabaseManager.reservationmap.keySet()){
+            System.out.println(DatabaseManager.reservationmap.get(key));
+        }
         NewJFrame frame = new NewJFrame();
         frame.setVisible(true);
+        Week week = new Week();
     }
 }

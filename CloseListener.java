@@ -1,5 +1,10 @@
+package badass.calendar;
+
 import java.awt.event.*;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  * Write a description of class WindowListener here.
  * 
@@ -18,31 +23,42 @@ public class CloseListener implements WindowListener
     }
 
     public void windowDeactivated(java.awt.event.WindowEvent e){
-        try{
-            DatabaseManager.saveReservations(new File("map.ser"));
-        }catch(Exception ex){
-            System.out.println("no file");
+        return;
+    }
+
+    @Override
+    public void windowOpened(WindowEvent we) {
+        return;
+    }
+
+    @Override
+    public void windowClosing(WindowEvent we) {
+        try {
+            DatabaseManager.saveReservations();
+            System.out.println("Reservations Saved");
+            System.exit(0);
+        } catch (IOException ex) {
+            Logger.getLogger(CloseListener.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.exit(0);
     }
-    
-    public void windowActivated(java.awt.event.WindowEvent e){
+
+    @Override
+    public void windowClosed(WindowEvent we) {
+        return;
     }
-    
-    public void windowDeiconified(java.awt.event.WindowEvent e){
+
+    @Override
+    public void windowIconified(WindowEvent we) {
+        return;
     }
-    
-    public void windowIconified(java.awt.event.WindowEvent e){
+
+    @Override
+    public void windowDeiconified(WindowEvent we) {
+        return;
     }
-    
-    public void windowClosed(java.awt.event.WindowEvent e){
+
+    @Override
+    public void windowActivated(WindowEvent we) {
+        return;
     }
-    
-    public void windowClosing(java.awt.event.WindowEvent e){
-    }
-    
-    public void windowOpened(java.awt.event.WindowEvent e){
-    }
-    
-    
 }

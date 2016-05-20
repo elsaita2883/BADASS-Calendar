@@ -1,3 +1,5 @@
+package badass.calendar;
+
 import java.io.Serializable;
 /**
  * Write a description of class Reservation here.
@@ -27,6 +29,6 @@ public class Reservation implements Serializable
         return className;
     }
     public String toString(){
-        return "Reservation made by: " + teacherName + " for: " + className;
+        return teacherName + " - " + className;
     }
 }

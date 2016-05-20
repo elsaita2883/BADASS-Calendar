@@ -1,3 +1,5 @@
+package badass.calendar;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -90,7 +92,6 @@ public class Week {
                 int month = cur.get(Calendar.MONTH) + 1;
                 int day = cur.get(Calendar.DAY_OF_MONTH);
                 int period = p+1;
-                System.out.println("Period:" + period);
                 //Make a period
                 Period pr = new Period(year,month,day,period);
                 //Check if period is in reservationmap

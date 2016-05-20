@@ -1,4 +1,7 @@
+package badass.calendar;
+
 import java.io.Serializable;
+import java.util.Arrays;
 /**
  * Write a description of class Period here.
  * 
@@ -12,8 +15,6 @@ public class Period implements Serializable
     private int year;
     private int month;
     private int day;
-    private Reservation reservation;
-    
     /**
      * Constructor for objects of class Period
      */
@@ -32,17 +33,24 @@ public class Period implements Serializable
         period = myPeriod;
         
     }
+    public Period(String date, int myPeriod){
+        String[] nums = date.split("/");
+        month = Integer.parseInt(nums[0]);
+        day = Integer.parseInt(nums[1]);
+        year = Integer.parseInt(nums[2]);
+    }
     public boolean hasReservation(){
-        return reservation != null;
-    }
-    public Reservation getReservation(){
-        return reservation;
-    }
-    public void addReservation(String name, String className){
-        reservation = new Reservation(name, className);
+        return DatabaseManager.reservationmap.containsKey(this);
     }
     public void addReservation(Reservation r){
-        reservation = r;
+        if(!DatabaseManager.reservationmap.containsKey(this)){
+            DatabaseManager.reservationmap.put(this, r);
+        }
+    }
+    public void removeReservation(){
+        System.out.println(this);
+        DatabaseManager.reservationmap.remove(this);
+        System.out.println(hasReservation());
     }
     public int getPeriod(){
         return this.period;
@@ -65,16 +73,12 @@ public class Period implements Serializable
     }
     public boolean equals(Period period2){
         boolean periodcheck = (this.period == period2.getPeriod());
-        //System.out.println(periodcheck);
         
         boolean daycheck = (this.day == period2.getDay());
-        //System.out.println(daycheck);
         
         boolean monthcheck = (this.month == period2.getMonth());
-        //System.out.println(monthcheck);
-        
+
         boolean yearcheck = (this.year == period2.getYear());
-        //System.out.println(yearcheck);
         
         return periodcheck && daycheck && monthcheck && yearcheck;
     }
