@@ -5,6 +5,7 @@
  */
 package badass.calendar;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -65,12 +66,17 @@ public class ButtonEditor extends DefaultCellEditor {
       // 
         if(label.equals("OPEN")){      
             String name = JOptionPane.showInputDialog("What's your name?");
-            String className = JOptionPane.showInputDialog("What's your class name?");
-            label = name + " - " + className;
-            Reservation reserved = new Reservation(name, className);
-            periods[column][row].addReservation(reserved);
-            
-        } else {
+            if(name != null){
+                String className = JOptionPane.showInputDialog("What's your class name?");
+                if(label != null){
+                    label = name + " - " + className;
+                    Reservation reserved = new Reservation(name, className);
+                    periods[column][row].addReservation(reserved);
+                    button.setOpaque(false);
+                    button.setBackground(Color.red);
+                }        
+            }    
+       } else {
             //String name = JOptionPane.showInputDialog("Do you want to cancel this reservation?");
             int i = JOptionPane.showConfirmDialog(editorComponent, "Do you want to cancel this reservation?");
             //(0 - Yes, 1-No, 2-Cancel)
