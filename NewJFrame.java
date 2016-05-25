@@ -1,4 +1,6 @@
 package badass.calendar;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +33,13 @@ public class NewJFrame extends javax.swing.JFrame {
         jTable1.getColumn("Period").setWidth(5);
         jTable1.repaint();
         loadLabels();
+        
+        final Toolkit toolkit = Toolkit.getDefaultToolkit();
+        final Dimension screenSize = toolkit.getScreenSize();
+        final int x = (screenSize.width - this.getWidth()) / 2;
+        final int y = (screenSize.height - this.getHeight()) / 2;
+        this.setLocation(x, y);
+
     }
     public int saveOnClose(){
         try {
@@ -57,34 +66,37 @@ public class NewJFrame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         previousWeekButton = new javax.swing.JButton();
         nextWeekButton = new javax.swing.JButton();
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 0));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 0));
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 0));
         jLabel1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 153));
+        jLabel1.setForeground(new java.awt.Color(239,187,41));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("WVHS Math Department Computer Lab Reservation");
 
         weekLabel.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        weekLabel.setForeground(new java.awt.Color(255, 255, 153));
+        weekLabel.setForeground(new java.awt.Color(239,187,41));
         weekLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        weekLabel.setText("Schedule for week of 05/16/2016 - 05/20/2016");
+        weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
 
         jTable1.setBackground(new java.awt.Color(0, 102, 0));
+        jTable1.setForeground(new java.awt.Color(187,126,39));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Button1", null, null, null, null},
-                {"2", null, null, null, null, null},
-                {"3", null, null, null, null, null},
-                {"4", null, null, null, null, null},
-                {"5", null, null, null, null, null},
-                {"6", null, null, null, null, null},
-                {"7", null, null, null, null, null},
-                {"8", null, null, null, null, null}
+                {"             1", null, null, null, null, null},
+                {"             2", null, null, null, null, null},
+                {"             3", null, null, null, null, null},
+                {"             4", null, null, null, null, null},
+                {"             5", null, null, null, null, null},
+                {"             6", null, null, null, null, null},
+                {"             7", null, null, null, null, null},
+                {"             8", null, null, null, null, null}
             },
             new String [] {
                 "Period", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
@@ -93,7 +105,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTable1.setRowHeight(50);
         jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 18));
         jScrollPane1.setViewportView(jTable1);
+        
 
         previousWeekButton.setText("Previous");
         previousWeekButton.addActionListener(new java.awt.event.ActionListener() {

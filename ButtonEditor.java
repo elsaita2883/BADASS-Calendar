@@ -34,7 +34,7 @@ public class ButtonEditor extends DefaultCellEditor {
     super(checkBox);
     this.periods = periods;
     button = new JButton();
-    button.setOpaque(true);
+    button.setOpaque(false);
     button.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         fireEditingStopped();

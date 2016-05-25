@@ -18,7 +18,9 @@ import javax.swing.table.TableCellRenderer;
 public class ButtonRenderer extends JButton implements TableCellRenderer {
 
   public ButtonRenderer() {
-    setOpaque(true);
+    setOpaque(false);
+    setBackground(new java.awt.Color(0, 102, 51));
+    
   }
 
   public Component getTableCellRendererComponent(JTable table, Object value,
