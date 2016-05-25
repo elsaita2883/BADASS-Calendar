@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
+PROJECT TITLE: BADASS Calendar
+PURPOSE OF PROJECT:Make scheduling of the Computer Lab easier
 VERSION or DATE:
 HOW TO START THIS PROJECT:
-AUTHORS:
+AUTHORS:Elsa Itambo, Zeel Parikh, Jason Paximadas
 USER INSTRUCTIONS:
