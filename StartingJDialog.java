@@ -8,7 +8,7 @@ import java.awt.Toolkit;
 
 /**
  *
- * @author The Argonauts
+ * @author Zeel Parikh
  * Creates the starting dialog that prompts the user for their name and password
  */
 public class StartingJDialog extends javax.swing.JDialog {
