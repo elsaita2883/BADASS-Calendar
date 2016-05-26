@@ -63,7 +63,7 @@ public class Main
         }
         try{
         if(Account.validate(lastName, password)){}
-        else if(Account.newAccount(firstName, lastName, password)){}
+        else if(Account.newAccount(firstName, lastName, password)){Account.validate(lastName,password);}
         else {
             dialog.setVisible(false);
             Main.main(new String[0]);
