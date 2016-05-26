@@ -17,7 +17,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author The Argonauts
+ * @author Zeel Parikh
  * 
  * Edits the Button based on the action performed
  */
