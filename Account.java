@@ -8,7 +8,7 @@ import javax.crypto.*;
 import java.math.BigInteger;
 
 /**
- * Manages the account of the program
+ * Manages the accounts of the program.
  * 
  * @author Jason Paximadas
  */
