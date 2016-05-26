@@ -24,9 +24,11 @@ public class Account
     private static int curUser = -1;
     
     private static File file = new File("accounts.ser");
-    // instance variables - replace the example below with your own
-    //private static final int iterations = 1000;
     
+    /**
+     * Saves the account data to a file.
+     * Postcondition: Data is saved as an array of arraylists.
+     * /
     public static void saveAccounts() throws FileNotFoundException,IOException{
         ArrayList[] archive = new ArrayList[5];
         archive[0] = firstNames;
@@ -42,6 +44,10 @@ public class Account
         oos.close();
         fout.close();
     }
+    /**
+     * Loads the account data into memory.
+     * Postcondition: A file that holds account data exists.
+     * /
     public static void loadAccounts()throws FileNotFoundException,IOException,ClassNotFoundException{
         try{
             FileInputStream fin = new FileInputStream(file);
@@ -60,6 +66,13 @@ public class Account
             saveAccounts();
         }
     }
+    /**
+     * Removes an account from the data structure.
+     * @param lastName the last name of the user
+     * @param firstName the first name of the user
+     * @param password the password of the user
+     * @return true if the account was removed, false if not
+     * /
     public static boolean removeAccount(String lastName, String password)throws NoSuchAlgorithmException, InvalidKeySpecException{
         if(!validate(lastName,password)) return false;
         int index = lastNames.indexOf(lastName);
@@ -72,6 +85,13 @@ public class Account
         if(curUser == index) curUser = -1;
         return true;
     }
+    /**
+     * Creates a new account in the data structure.
+     * @param firstName the first name of the user
+     * @param lastName the last name of the user
+     * @param password the password of the user\
+     * @return true if the account was created, false if not
+     * /
     public static boolean newAccount(String firstName, String lastName, String password)throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         //generate salt
@@ -98,9 +118,21 @@ public class Account
         //saveAccounts();
         //System.out.println("Made entry with hash: " + toHex(digested) + " and salt: " + toHex(salt));
     }
+    /**
+     * Sets the number of iterations of PBKDF2withHmacSHA1 to perform
+     * @param number of iterations
+     * Postcondition: desiredIterations>=1000
+     * /
     static void setIterations(int i){
         if(desiredIterations>=1000)desiredIterations=i;
     }
+    /**
+     * Performs PBKDF2withHmacSHA1 on an inputer and a salt iter times
+     * @param input the input
+     * @param salt the salt
+     * @param iter the number of iterations
+     * @return the result of the stretched and salted hash
+     * /
     private static byte[] digest(char[] input, byte[] salt, int iter) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         PBEKeySpec spec = new PBEKeySpec(input, salt, iter, 64 * 8); //specify how the stretched hash should be ocontructed
@@ -108,6 +140,13 @@ public class Account
         byte[] hash = skf.generateSecret(spec).getEncoded();
         return hash;
     } 
+    /**
+     * Validates a password.
+     * @param lastName the last name of the user
+     * @param passowrd the user's password
+     * @return true if the password is correct, false if it isn't
+     * Postcondition: the number of iterations on the stretched hash will be correct
+     * /
     public static boolean validate(String lastName, String password)throws NoSuchAlgorithmException, InvalidKeySpecException{
         //find the user
         int index = -1;
@@ -138,14 +177,26 @@ public class Account
         curUser = index; //define the current user
         return true;
     }
+    /**
+     * Gets the name of the current user.
+     * @return the name of the current user
+     * /
     public static String getCurrentUser(){
         return getUsername(curUser);
     }
+    /**
+     * Gets the username at an index in the data structure.
+     * @param i the index
+     * @return the full name of the person
+     * /
     private static String getUsername(int i){
         if(i<0) return "no user";
         else
         return firstNames.get(i) + " " + lastNames.get(i);
     }
+    /**
+     * Lists all the users in the database.
+     * /
     public static String allUsers(){
         int users = lastNames.size();
         String list = "";
@@ -155,16 +206,5 @@ public class Account
         }    
         return list;
     }
-    private static String toHex(byte[] array) throws NoSuchAlgorithmException
-    {
-        BigInteger bi = new BigInteger(1, array);
-        String hex = bi.toString(16);
-        int paddingLength = (array.length * 2) - hex.length();
-        if(paddingLength > 0)
-        {
-            return String.format("%0"  +paddingLength + "d", 0) + hex;
-        }else{
-            return hex;
-        }
-    }
+    
 }
