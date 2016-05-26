@@ -3,9 +3,9 @@ package badass.calendar;
 import java.io.Serializable;
 import java.util.Arrays;
 /**
- * Write a description of class Period here.
+ * Represents a school period.
  * 
- * @author (your name) 
+ * @author Elsa Itambo, Jason Paximadas 
  * @version (a version number or a date)
  */
 public class Period implements Serializable
