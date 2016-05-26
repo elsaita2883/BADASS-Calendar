@@ -5,9 +5,10 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
- * Monitors the closing of a window to save account and reservation data.
+ * Write a description of class WindowListener here.
  * 
- * @author Elsa Itambo
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class CloseListener implements WindowListener
 {

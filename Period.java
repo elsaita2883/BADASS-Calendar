@@ -3,15 +3,15 @@ package badass.calendar;
 import java.io.Serializable;
 import java.util.Arrays;
 /**
- * Represents a school period.
+ * Write a description of class Period here.
  * 
- * @author Elsa Itambo, Jason Paximadas 
+ * @author (your name) 
  * @version (a version number or a date)
  */
 public class Period implements Serializable
 {
     // instance variables - replace the example below with your own
-    private int period;
+    private final int period;
     private final int year;
     private final int month;
     private final int day;
@@ -26,6 +26,7 @@ public class Period implements Serializable
         month = Integer.parseInt(nums[0]);
         day = Integer.parseInt(nums[1]);
         year = Integer.parseInt(nums[2]);
+        period = myPeriod;
     }
     
     /**
