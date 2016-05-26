@@ -1,4 +1,3 @@
-package badass.calendar; 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -179,7 +178,7 @@ public class StartingJDialog extends javax.swing.JDialog {
 
     private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
        this.setVisible(false);
-        badass.calendar.Main.loadCalendar(jTextFieldFirstName.getText(), jTextFieldLastName.getText(), jPasswordField1.getText());
+        Main.loadCalendar(jTextFieldFirstName.getText(), jTextFieldLastName.getText(), jPasswordField1.getText());
         
     }//GEN-LAST:event_jButtonSubmitActionPerformed
 
@@ -240,5 +239,4 @@ public class StartingJDialog extends javax.swing.JDialog {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextFieldFirstName;
     private javax.swing.JTextField jTextFieldLastName;
-    // End of variables declaration//GEN-END:variables
 }

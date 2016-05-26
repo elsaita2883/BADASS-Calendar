@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package badass.calendar;
+ 
 
 import java.awt.Color;
 import java.awt.Component;
@@ -65,8 +65,8 @@ public class ButtonEditor extends DefaultCellEditor {
       // 
       // 
         if(label.equals("OPEN")){      
-            String name = JOptionPane.showInputDialog("What's your name?");
-            if(name != null){
+            String name = Account.getCurrentUser();
+            if(!(name.equals("no user"))){
                 String className = JOptionPane.showInputDialog("What's your class name?");
                 if(label != null){
                     label = name + " - " + className;
@@ -76,7 +76,7 @@ public class ButtonEditor extends DefaultCellEditor {
                     button.setBackground(Color.red);
                 }        
             }    
-       } else {
+       } else if(Account.getCurrentUser().equals(label.split(" - ")[0])){
             //String name = JOptionPane.showInputDialog("Do you want to cancel this reservation?");
             int i = JOptionPane.showConfirmDialog(editorComponent, "Do you want to cancel this reservation?");
             //(0 - Yes, 1-No, 2-Cancel)
@@ -85,6 +85,8 @@ public class ButtonEditor extends DefaultCellEditor {
                 periods[column][row].removeReservation();
             }
             
+        } else {
+            JOptionPane.showMessageDialog(editorComponent, "You cannot edit this!");
         }
     }
     isPushed = false;

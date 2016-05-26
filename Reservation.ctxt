@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=myTeacher\ myClass
+comment0.target=Reservation(java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Reservation\r\n
+comment1.params=
+comment1.target=java.lang.String\ getTeacher()
+comment2.params=
+comment2.target=java.lang.String\ myClass()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

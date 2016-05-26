@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=checkBox\ periods
+comment0.target=ButtonEditor(javax.swing.JCheckBox,\ Period[][])
+comment1.params=e
+comment1.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.params=table\ value\ isSelected\ row\ column
+comment2.target=java.awt.Component\ getTableCellEditorComponent(javax.swing.JTable,\ java.lang.Object,\ boolean,\ int,\ int)
+comment3.params=
+comment3.target=java.lang.Object\ getCellEditorValue()
+comment4.params=
+comment4.target=boolean\ stopCellEditing()
+comment5.params=
+comment5.target=void\ fireEditingStopped()
+numComments=6

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=key
+comment0.target=badass.calendar.Reservation\ get(Period)
+comment1.params=pr
+comment1.target=void\ remove(Period)
+comment2.params=key
+comment2.target=boolean\ containsKey(Period)
+numComments=3

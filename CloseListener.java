@@ -1,4 +1,4 @@
-package badass.calendar;
+ 
 
 import java.awt.event.*;
 import java.io.File;
@@ -33,18 +33,27 @@ public class CloseListener implements WindowListener
 
     @Override
     public void windowClosing(WindowEvent we) {
-        try {
-            DatabaseManager.saveReservations();
-            System.out.println("Reservations Saved");
-            System.exit(0);
-        } catch (IOException ex) {
-            Logger.getLogger(CloseListener.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        return;
     }
 
     @Override
     public void windowClosed(WindowEvent we) {
-        return;
+        try {
+            DatabaseManager.saveReservations();
+            System.out.println("reservations saved");
+            //System.exit(0);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CloseListener.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         try {
+            Account.saveAccounts();
+            System.out.println("accounts saved");
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CloseListener.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
     }
 
     @Override

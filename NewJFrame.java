@@ -1,4 +1,4 @@
-package badass.calendar;
+ 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -41,6 +41,7 @@ public class NewJFrame extends javax.swing.JFrame {
         this.setLocation(x, y);
 
     }
+    /*
     public int saveOnClose(){
         try {
             DatabaseManager.saveReservations();
@@ -51,6 +52,7 @@ public class NewJFrame extends javax.swing.JFrame {
             return JFrame.EXIT_ON_CLOSE;
         }
     }
+    */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,7 +70,8 @@ public class NewJFrame extends javax.swing.JFrame {
         nextWeekButton = new javax.swing.JButton();
         
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new CloseListener());
         setBackground(new java.awt.Color(0, 102, 0));
         setResizable(false);
 

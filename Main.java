@@ -1,5 +1,3 @@
-package badass.calendar; 
-
 /**
  * Write a description of class Tester here.
  * 
@@ -8,6 +6,7 @@ package badass.calendar;
  */
 public class Main
 {
+    static StartingJDialog dialog;
     public static void main(String args[])throws Exception{
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -35,7 +34,7 @@ public class Main
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                StartingJDialog dialog = new StartingJDialog(new javax.swing.JFrame(), true);
+                dialog = new StartingJDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -48,18 +47,32 @@ public class Main
     }
     
     public static void loadCalendar(String firstName, String lastName, String password){
-        System.out.println("First Name = " + firstName);
-        System.out.println("Last Name = " + lastName);
-        System.out.println("Password = " + password);
+        
+        
+        
         try{
             DatabaseManager.loadReservations();
+            Account.loadAccounts();
+            System.out.println("data loaded");
         }catch(Exception e){
-            
+            try{DatabaseManager.saveReservations();}catch(Exception f){}
+            try{Account.saveAccounts();}catch(Exception f){}
         }
         for(Object key : DatabaseManager.reservationmap.keySet()){
             System.out.println(DatabaseManager.reservationmap.get(key));
         }
+        try{
+        if(Account.validate(lastName, password)){}
+        else if(Account.newAccount(firstName, lastName, password)){}
+        else {
+            dialog.setVisible(false);
+            Main.main(new String[0]);
+            return;
+        }
+        }catch(Exception e){
+        System.out.println("Issue with login or user creation");}
         
+  
        try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 System.out.println(info.getName());
