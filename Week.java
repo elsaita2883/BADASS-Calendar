@@ -1,4 +1,4 @@
- 
+package badass.calendar;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -87,13 +87,11 @@ public class Week {
         Period[][] week = new Period[5][8];
         for(int d = 0; d < days.length; d++){
             for(int p = 0;p < 8;p++){
-                Calendar cur = days[d];
-                int year = cur.get(Calendar.YEAR);
-                int month = cur.get(Calendar.MONTH) + 1;
-                int day = cur.get(Calendar.DAY_OF_MONTH);
                 int period = p+1;
                 //Make a period
-                Period pr = new Period(year,month,day,period);
+                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
+                String str = sdf.format(days[d].getTime());
+                Period pr = new Period(str, period);
                 //Check if period is in reservationmap
                 if(DatabaseManager.reservationmap.containsKey(pr)){
                     //If so, get associated Reservation and add it
@@ -112,15 +110,15 @@ public class Week {
      */
     public String getDayName(int index){
         switch(index){
-            case 2:
+            case 1:
                 return "Monday";
-            case 3:
+            case 2:
                 return "Tuesday";
-            case 4:
+            case 3:
                 return "Wednesday";
-            case 5:
+            case 4:
                 return "Thursday"; 
-            case 6:
+            case 5:
                 return "Friday";
                 
         }

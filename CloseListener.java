@@ -1,7 +1,6 @@
- 
+package badass.calendar;
 
 import java.awt.event.*;
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,61 +12,38 @@ import java.util.logging.Logger;
  */
 public class CloseListener implements WindowListener
 {
-    
-    /**
-     * Constructor for objects of class WindowListener
-     */
-    public CloseListener()
-    {
-       
-    }
-
+    @Override
     public void windowDeactivated(java.awt.event.WindowEvent e){
-        return;
     }
 
     @Override
     public void windowOpened(WindowEvent we) {
-        return;
     }
 
     @Override
     public void windowClosing(WindowEvent we) {
-        return;
+        try {
+            DatabaseManager.saveReservations();
+            System.out.println("Reservations Saved");
+            System.exit(0);
+        } catch (IOException ex) {
+            Logger.getLogger(CloseListener.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void windowClosed(WindowEvent we) {
-        try {
-            DatabaseManager.saveReservations();
-            System.out.println("reservations saved");
-            //System.exit(0);
-            
-        } catch (IOException ex) {
-            Logger.getLogger(CloseListener.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         try {
-            Account.saveAccounts();
-            System.out.println("accounts saved");
-            
-        } catch (IOException ex) {
-            Logger.getLogger(CloseListener.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.exit(0);
     }
 
     @Override
     public void windowIconified(WindowEvent we) {
-        return;
     }
 
     @Override
     public void windowDeiconified(WindowEvent we) {
-        return;
     }
 
     @Override
     public void windowActivated(WindowEvent we) {
-        return;
     }
 }

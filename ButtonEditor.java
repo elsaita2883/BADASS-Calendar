@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- 
+package badass.calendar;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -26,7 +26,7 @@ public class ButtonEditor extends DefaultCellEditor {
     private int day;
     private int month;
     private int year;
-    private Period[][] periods;
+    private final Period[][] periods;
     private int row;
     private int column;
 
@@ -36,6 +36,7 @@ public class ButtonEditor extends DefaultCellEditor {
     button = new JButton();
     button.setOpaque(false);
     button.addActionListener(new ActionListener() {
+      @Override
       public void actionPerformed(ActionEvent e) {
         fireEditingStopped();
       }
@@ -60,13 +61,14 @@ public class ButtonEditor extends DefaultCellEditor {
     return button;
   }
 
+    @Override
   public Object getCellEditorValue() {
     if (isPushed) {
       // 
       // 
         if(label.equals("OPEN")){      
-            String name = Account.getCurrentUser();
-            if(!(name.equals("no user"))){
+            String name = JOptionPane.showInputDialog("What's your name?");
+            if(name != null){
                 String className = JOptionPane.showInputDialog("What's your class name?");
                 if(label != null){
                     label = name + " - " + className;
@@ -76,7 +78,7 @@ public class ButtonEditor extends DefaultCellEditor {
                     button.setBackground(Color.red);
                 }        
             }    
-       } else if(Account.getCurrentUser().equals(label.split(" - ")[0])){
+       } else {
             //String name = JOptionPane.showInputDialog("Do you want to cancel this reservation?");
             int i = JOptionPane.showConfirmDialog(editorComponent, "Do you want to cancel this reservation?");
             //(0 - Yes, 1-No, 2-Cancel)
@@ -85,19 +87,19 @@ public class ButtonEditor extends DefaultCellEditor {
                 periods[column][row].removeReservation();
             }
             
-        } else {
-            JOptionPane.showMessageDialog(editorComponent, "You cannot edit this!");
         }
     }
     isPushed = false;
-    return new String(label);
+    return label;
   }
 
+    @Override
   public boolean stopCellEditing() {
     isPushed = false;
     return super.stopCellEditing();
   }
 
+    @Override
   protected void fireEditingStopped() {
     super.fireEditingStopped();
   }

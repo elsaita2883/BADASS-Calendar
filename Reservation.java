@@ -1,4 +1,4 @@
- 
+package badass.calendar;
 
 import java.io.Serializable;
 /**
@@ -13,7 +13,9 @@ public class Reservation implements Serializable
     private String className;
     
     /**
-     * Constructor for objects of class Reservation
+     * Creates a new Reservation object
+     * @param myTeacher Teacher's last name
+     * @param myClass name of the class
      */
     public Reservation(String myTeacher, String myClass)
     {
@@ -21,13 +23,23 @@ public class Reservation implements Serializable
         className=myClass;
     }
     
+    /**
+     * Returns the name of the teacher to whom the Reservation belongs
+     * @return teacherName
+     */
     public String getTeacher(){
         return teacherName;
     }
     
+    /**
+     * Returns the name of the class
+     * @return className
+     */
     public String myClass(){
         return className;
     }
+    
+    @Override
     public String toString(){
         return teacherName + " - " + className;
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- 
+package badass.calendar;
 
 import java.awt.Component;
 import javax.swing.JButton;
@@ -17,12 +17,16 @@ import javax.swing.table.TableCellRenderer;
  */
 public class ButtonRenderer extends JButton implements TableCellRenderer {
 
+  /**
+   * Creates a new ButtonRenderer object
+   */
   public ButtonRenderer() {
     setOpaque(false);
     setBackground(new java.awt.Color(0, 102, 51));
     
   }
 
+  @Override
   public Component getTableCellRendererComponent(JTable table, Object value,
       boolean isSelected, boolean hasFocus, int row, int column) {
     if (isSelected) {
