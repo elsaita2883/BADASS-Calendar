@@ -8,10 +8,9 @@ import javax.crypto.*;
 import java.math.BigInteger;
 
 /**
- * Write a description of class Account here.
+ * Manages the account of the program
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jason Paximadas
  */
 public class Account
 {
@@ -28,7 +27,7 @@ public class Account
     /**
      * Saves the account data to a file.
      * Postcondition: Data is saved as an array of arraylists.
-     * /
+     */
     public static void saveAccounts() throws FileNotFoundException,IOException{
         ArrayList[] archive = new ArrayList[5];
         archive[0] = firstNames;
@@ -47,7 +46,7 @@ public class Account
     /**
      * Loads the account data into memory.
      * Postcondition: A file that holds account data exists.
-     * /
+     */
     public static void loadAccounts()throws FileNotFoundException,IOException,ClassNotFoundException{
         try{
             FileInputStream fin = new FileInputStream(file);
@@ -72,7 +71,7 @@ public class Account
      * @param firstName the first name of the user
      * @param password the password of the user
      * @return true if the account was removed, false if not
-     * /
+     */
     public static boolean removeAccount(String lastName, String password)throws NoSuchAlgorithmException, InvalidKeySpecException{
         if(!validate(lastName,password)) return false;
         int index = lastNames.indexOf(lastName);
@@ -91,7 +90,7 @@ public class Account
      * @param lastName the last name of the user
      * @param password the password of the user\
      * @return true if the account was created, false if not
-     * /
+     */
     public static boolean newAccount(String firstName, String lastName, String password)throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         //generate salt
@@ -122,7 +121,7 @@ public class Account
      * Sets the number of iterations of PBKDF2withHmacSHA1 to perform
      * @param number of iterations
      * Postcondition: desiredIterations>=1000
-     * /
+     */
     static void setIterations(int i){
         if(desiredIterations>=1000)desiredIterations=i;
     }
@@ -132,7 +131,7 @@ public class Account
      * @param salt the salt
      * @param iter the number of iterations
      * @return the result of the stretched and salted hash
-     * /
+     */
     private static byte[] digest(char[] input, byte[] salt, int iter) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         PBEKeySpec spec = new PBEKeySpec(input, salt, iter, 64 * 8); //specify how the stretched hash should be ocontructed
@@ -146,7 +145,7 @@ public class Account
      * @param passowrd the user's password
      * @return true if the password is correct, false if it isn't
      * Postcondition: the number of iterations on the stretched hash will be correct
-     * /
+     */
     public static boolean validate(String lastName, String password)throws NoSuchAlgorithmException, InvalidKeySpecException{
         //find the user
         int index = -1;
@@ -180,7 +179,7 @@ public class Account
     /**
      * Gets the name of the current user.
      * @return the name of the current user
-     * /
+     */
     public static String getCurrentUser(){
         return getUsername(curUser);
     }
@@ -196,7 +195,7 @@ public class Account
     }
     /**
      * Lists all the users in the database.
-     * /
+     */
     public static String allUsers(){
         int users = lastNames.size();
         String list = "";
