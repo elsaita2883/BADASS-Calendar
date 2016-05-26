@@ -8,7 +8,6 @@ package badass.calendar;
  
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -88,12 +87,10 @@ public class Week {
         for(int d = 0; d < days.length; d++){
             for(int p = 0; p < 8;p++){
                 int period = p+1;
-                System.out.println(period);
                 //Make a period
                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
                 String str = sdf.format(days[d].getTime());
                 Period pr = new Period(str, period);
-                System.out.println(pr.toString());
                 //Check if period is in reservationmap
                 if(DatabaseManager.reservationmap.containsKey(pr)){
                     //If so, get associated Reservation and add it
