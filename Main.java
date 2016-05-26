@@ -3,10 +3,9 @@ package badass.calendar;
 import java.io.IOException;
 
 /**
- * Write a description of class Tester here.
+ * Launches all other methods.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Zeel Parikh 
  */
 public class Main
 {
