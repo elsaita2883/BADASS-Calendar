@@ -12,8 +12,9 @@ import javax.swing.UIManager;
 import javax.swing.table.TableCellRenderer;
 
 /**
- *
- * @author Owner
+ * Renders buttons.
+ * 
+ * @author Zeel Parikh
  */
 public class ButtonRenderer extends JButton implements TableCellRenderer {
 
