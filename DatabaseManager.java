@@ -1,4 +1,4 @@
-package badass.calendar;
+ 
 
 
 import java.io.*;
@@ -18,11 +18,15 @@ public class DatabaseManager
      * @throws ClassNotFoundException 
      */
     public static void loadReservations()throws IOException,ClassNotFoundException{
-        FileInputStream fin = new FileInputStream(file);
-        ObjectInputStream ois = new ObjectInputStream(fin);
-        reservationmap = (ReservationMap) ois.readObject();
-        ois.close();
-        fin.close();
+        try{
+            FileInputStream fin = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fin);
+            reservationmap = (ReservationMap) ois.readObject();
+            ois.close();
+            fin.close();
+        }catch(FileNotFoundException e){
+            saveReservations();
+        }
     }
     
     /**

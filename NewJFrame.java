@@ -1,4 +1,4 @@
-package badass.calendar;
+ 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class NewJFrame extends javax.swing.JFrame {
         initComponents();
         
         //Creates Buttons in each of the columns
-        for (int i = 2; i < 7; i++){
+        for (int i = 1; i < 6; i++){
             jTable1.getColumn(week.getDayName(i)).setCellRenderer(new ButtonRenderer());
             jTable1.getColumn(week.getDayName(i)).setCellEditor(
             new ButtonEditor(new JCheckBox(),pr));            

@@ -1,5 +1,5 @@
-package badass.calendar; 
-
+  
+import javax.swing.JOptionPane;
 import java.io.IOException;
 
 /**
@@ -10,6 +10,7 @@ import java.io.IOException;
  */
 public class Main
 {
+    static StartingJDialog dialog;
     public static void main(String args[])throws Exception{
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -38,7 +39,7 @@ public class Main
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                StartingJDialog dialog = new StartingJDialog(new javax.swing.JFrame(), true);
+                dialog = new StartingJDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -59,11 +60,27 @@ public class Main
     public static void loadCalendar(String firstName, String lastName, String password){
         try{
             DatabaseManager.loadReservations();
+            Account.loadAccounts();
         }catch(IOException | ClassNotFoundException e){
-            
+            JOptionPane.showMessageDialog(null, "Problem writing to directory");
+            System.exit(0);
         }
         for(Object key : DatabaseManager.reservationmap.keySet()){
             System.out.println(DatabaseManager.reservationmap.get(key));
+        }
+        try{
+            Account.newAccount(firstName, lastName, password);
+        
+            if(Account.validate(lastName, password)){
+            }else{
+                dialog.setVisible(false);
+                main(new String[0]);
+                return;
+            }
+        }catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Problem processing data");
+            System.exit(0);
         }
         
        try {

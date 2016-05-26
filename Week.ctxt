@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Week()
+comment0.text=\r\n\ Creates\ a\ new\ Week\ object\ initialized\ to\ the\ current\ week\r\n
+comment1.params=
+comment1.target=void\ nextWeek()
+comment1.text=\r\n\ Sets\ Week\ object\ to\ next\ Week\r\n
+comment2.params=
+comment2.target=void\ previousWeek()
+comment2.text=\r\n\ Sets\ Week\ object\ to\ previous\ Week\r\n
+comment3.params=
+comment3.target=java.lang.String\ getStartDate()
+comment3.text=\r\n\ Gets\ the\ first\ day\ of\ the\ week\r\n\ @return\ String\ date\ (MM/dd/YY)\ for\ example\:\ 2/15/2003\r\n
+comment4.params=
+comment4.target=java.lang.String\ getEndDate()
+comment4.text=\r\n\ Gets\ the\ last\ day\ of\ the\ week\r\n\ @return\ String\ date\ (MM/dd/YYYY)\ for\ example\:\ 7/24/1990\r\n
+comment5.params=
+comment5.target=Period[][]\ getPeriods()
+comment5.text=\r\n\ Returns\ all\ periods\ within\ the\ Week\r\n\ @return\ Period[][]\ periods\r\n
+comment6.params=index
+comment6.target=java.lang.String\ getDayName(int)
+comment6.text=\r\n\ Gets\ the\ name\ of\ a\ day\ in\ relation\ the\ the\ week\r\n\ @param\ index\ index\ of\ day\ in\ week\ with\ 0\=Sunday\r\n\ @return\ String\ name\ of\ day\r\n
+numComments=7

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ loadReservations()
+comment0.text=\r\n\ Loads\ reservations\ from\ "map.ser"\r\n\ @throws\ IOException\r\n\ @throws\ ClassNotFoundException\ \r\n
+comment1.params=
+comment1.target=void\ saveReservations()
+comment1.text=\r\n\ Saves\ reservations\ to\ "map.ser"\r\n\ @throws\ IOException\ \r\n
+numComments=2

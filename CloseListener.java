@@ -1,4 +1,4 @@
-package badass.calendar;
+ 
 
 import java.awt.event.*;
 import java.io.IOException;
@@ -24,6 +24,7 @@ public class CloseListener implements WindowListener
     public void windowClosing(WindowEvent we) {
         try {
             DatabaseManager.saveReservations();
+            Account.saveAccounts();
             System.out.println("Reservations Saved");
             System.exit(0);
         } catch (IOException ex) {

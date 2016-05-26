@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=
+comment0.target=NewJFrame()
+comment0.text=\r\n\ Creates\ new\ form\ NewJFrame\r\n
+comment1.params=
+comment1.target=void\ initComponents()
+comment1.text=\r\n\ Sets\ the\ initial\ components\ of\ the\ Frame\ including\ the\ background\ panel,\ the\ titles,\ \r\n\ the\ table/calendar,\ the\ next,\ and\ previous\ week\ buttons\ \r\n
+comment2.params=evt
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=evt
+comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment4.params=
+comment4.target=void\ loadLabels()
+comment4.text=Sets\ the\ labels\ of\ each\ box\ on\ the\ grid.\r\n\ Boxes\ are\ labeled\ "Open"\ if\ there\ is\ no\ reservation\r\n\ Labeled\ with\ the\ name\ and\ class\ otherwise\r\n
+comment5.params=evt
+comment5.target=void\ nextWeekButtonActionPerformed(java.awt.event.ActionEvent)
+comment5.text=Loads\ a\ period\ array\ for\ the\ next\ week\ and\ updates\ the\ periods\ boxes\ and\ week\ label\r\n\ @param\ evt\ -\ The\ next\ button\ being\ clicked\r\n
+comment6.params=evt
+comment6.target=void\ previousWeekButtonActionPerformed(java.awt.event.ActionEvent)
+comment6.text=Loads\ a\ period\ array\ for\ the\ previous\ week\ and\ updates\ the\ periods\ boxes\ and\ week\ label\r\n\ @param\ evt\ -\ The\ previous\ button\ being\ clicked\r\n
+comment7.params=
+comment7.target=void\ startGUI()
+comment7.text=Starts\ this\ GUI\ when\ called\ by\ a\ main\ class\r\n
+comment8.params=
+comment8.target=void\ run()
+numComments=9

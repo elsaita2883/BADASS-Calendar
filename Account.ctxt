@@ -1,0 +1,32 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ saveAccounts()
+comment0.text=\r\n\ Saves\ the\ account\ data\ to\ a\ file.\r\n\ Postcondition\:\ Data\ is\ saved\ as\ an\ array\ of\ arraylists.\r\n\ @throws\ java.io.FileNotFoundException\r\n
+comment1.params=
+comment1.target=void\ loadAccounts()
+comment1.text=\r\n\ Loads\ the\ account\ data\ into\ memory.\r\n\ Postcondition\:\ A\ file\ that\ holds\ account\ data\ exists.\r\n\ @throws\ java.io.FileNotFoundException\r\n\ @throws\ java.lang.ClassNotFoundException\r\n
+comment2.params=lastName\ password
+comment2.target=boolean\ removeAccount(java.lang.String,\ java.lang.String)
+comment2.text=\r\n\ Removes\ an\ account\ from\ the\ data\ structure.\r\n\ @param\ lastName\ the\ last\ name\ of\ the\ user\r\n\ @param\ password\ the\ password\ of\ the\ user\r\n\ @return\ true\ if\ the\ account\ was\ removed,\ false\ if\ not\r\n\ @throws\ java.security.NoSuchAlgorithmException\r\n\ @throws\ java.security.spec.InvalidKeySpecException\r\n
+comment3.params=firstName\ lastName\ password
+comment3.target=boolean\ newAccount(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment3.text=\r\n\ Creates\ a\ new\ account\ in\ the\ data\ structure.\r\n\ @param\ firstName\ the\ first\ name\ of\ the\ user\r\n\ @param\ lastName\ the\ last\ name\ of\ the\ user\r\n\ @param\ password\ the\ password\ of\ the\ user\\\r\n\ @return\ true\ if\ the\ account\ was\ created,\ false\ if\ not\r\n\ @throws\ java.security.NoSuchAlgorithmException\r\n\ @throws\ java.security.spec.InvalidKeySpecException\r\n
+comment4.params=i
+comment4.target=void\ setIterations(int)
+comment4.text=\r\n\ Sets\ the\ number\ of\ iterations\ of\ PBKDF2withHmacSHA1\ to\ perform\r\n\ @param\ number\ of\ iterations\r\n\ Postcondition\:\ desiredIterations>\=1000\r\n
+comment5.params=input\ salt\ iter
+comment5.target=byte[]\ digest(char[],\ byte[],\ int)
+comment5.text=\r\n\ Performs\ PBKDF2withHmacSHA1\ on\ an\ inputer\ and\ a\ salt\ iter\ times\r\n\ @param\ input\ the\ input\r\n\ @param\ salt\ the\ salt\r\n\ @param\ iter\ the\ number\ of\ iterations\r\n\ @return\ the\ result\ of\ the\ stretched\ and\ salted\ hash\r\n
+comment6.params=lastName\ password
+comment6.target=boolean\ validate(java.lang.String,\ java.lang.String)
+comment6.text=\r\n\ Validates\ a\ password.\r\n\ @param\ lastName\ the\ last\ name\ of\ the\ user\r\n\ @param\ password\ the\ user's\ password\r\n\ @return\ true\ if\ the\ password\ is\ correct,\ false\ if\ it\ isn't\r\n\ Postcondition\:\ the\ number\ of\ iterations\ on\ the\ stretched\ hash\ will\ be\ correct\r\n\ @throws\ java.security.NoSuchAlgorithmException\r\n\ @throws\ java.security.spec.InvalidKeySpecException\r\n
+comment7.params=
+comment7.target=java.lang.String\ getCurrentUser()
+comment7.text=\r\n\ Gets\ the\ name\ of\ the\ current\ user.\r\n\ @return\ the\ name\ of\ the\ current\ user\r\n
+comment8.params=i
+comment8.target=java.lang.String\ getUsername(int)
+comment8.text=\r\n\ Gets\ the\ username\ at\ an\ index\ in\ the\ data\ structure.\r\n\ @param\ i\ the\ index\r\n\ @return\ the\ full\ name\ of\ the\ person\r\n
+comment9.params=
+comment9.target=java.lang.String\ allUsers()
+comment9.text=\r\n\ Lists\ all\ the\ users\ in\ the\ database.\r\n\ @return\ String\ listing\ all\ Users,\ separated\ by\ "|"\r\n
+numComments=10

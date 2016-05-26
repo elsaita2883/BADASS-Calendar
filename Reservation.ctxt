@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=myTeacher\ myClass
+comment0.target=Reservation(java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Creates\ a\ new\ Reservation\ object\r\n\ @param\ myTeacher\ Teacher's\ last\ name\r\n\ @param\ myClass\ name\ of\ the\ class\r\n
+comment1.params=
+comment1.target=java.lang.String\ getTeacher()
+comment1.text=\r\n\ Returns\ the\ name\ of\ the\ teacher\ to\ whom\ the\ Reservation\ belongs\r\n\ @return\ teacherName\r\n
+comment2.params=
+comment2.target=java.lang.String\ myClass()
+comment2.text=\r\n\ Returns\ the\ name\ of\ the\ class\r\n\ @return\ className\r\n
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4
