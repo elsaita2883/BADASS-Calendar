@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import java.util.ArrayList;
 
 /**
  * @author Zeel Parikh
@@ -24,8 +25,8 @@ public class NewJFrame extends javax.swing.JFrame {
         //Creates Buttons in each of the columns
         for (int i = 1; i < 6; i++){
             jTable1.getColumn(week.getDayName(i)).setCellRenderer(new ButtonRenderer());
-            jTable1.getColumn(week.getDayName(i)).setCellEditor(
-            new ButtonEditor(new JCheckBox(),pr));            
+            ButtonEditor cur = new ButtonEditor(new JCheckBox(),pr);
+            jTable1.getColumn(week.getDayName(i)).setCellEditor(cur);
         }
         jTable1.getColumn("Period").setWidth(5);
         jTable1.repaint();
@@ -191,6 +192,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private void nextWeekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextWeekButtonActionPerformed
         week.nextWeek();
         pr = week.getPeriods();
+        //for(ButtonEditor elem : be)
+          //  elem.updatePeriods(pr);
         weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
         loadLabels();
         
@@ -203,6 +206,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private void previousWeekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousWeekButtonActionPerformed
         week.previousWeek();
         pr = week.getPeriods();
+        //for(ButtonEditor elem : be)
+          //  elem.updatePeriods(pr);
         weekLabel.setText("Schedule for the week of " + week.getStartDate() + " - " + week.getEndDate());
         loadLabels();
     }//GEN-LAST:event_previousWeekButtonActionPerformed
@@ -250,5 +255,6 @@ public class NewJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     //This attribute will manage the week displayed to user
     Week week = new Week();
-    Period[][] pr = new Period[5][8];
+    public static Period[][] pr = new Period[5][8];
+    
 }

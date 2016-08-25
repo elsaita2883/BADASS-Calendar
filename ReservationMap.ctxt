@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=key
-comment0.target=badass.calendar.Reservation\ get(Period)
+comment0.target=Reservation\ get(Period)
 comment0.text=\r\n\ Returns\ associated\ Reservation\r\n\ @param\ key\ Period\ used\ to\ find\ attached\ Reservation\r\n\ @return\ the\ attached\ Reservation,\ or\ null\ if\ there\ is\ none\r\n
 comment1.params=pr
 comment1.target=void\ remove(Period)

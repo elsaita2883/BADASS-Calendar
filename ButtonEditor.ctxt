@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.params=checkBox\ periods
+comment0.params=checkBox\ pr
 comment0.target=ButtonEditor(javax.swing.JCheckBox,\ Period[][])
 comment0.text=Creates\ a\ button\ editor\r\n\ @param\ checkBox\ -\ Constructs\ a\ DefaultCellEditor\ object\ that\ uses\ a\ check\ box.\r\n\ @param\ periods\ -\ the\ period\ array\ that\ the\ button\ is\ part\ of\ \r\n
 comment1.params=e

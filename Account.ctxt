@@ -10,7 +10,7 @@ comment2.target=boolean\ removeAccount(java.lang.String,\ java.lang.String)
 comment2.text=\r\n\ Removes\ an\ account\ from\ the\ data\ structure.\r\n\ @param\ lastName\ the\ last\ name\ of\ the\ user\r\n\ @param\ password\ the\ password\ of\ the\ user\r\n\ @return\ true\ if\ the\ account\ was\ removed,\ false\ if\ not\r\n\ @throws\ java.security.NoSuchAlgorithmException\r\n\ @throws\ java.security.spec.InvalidKeySpecException\r\n
 comment3.params=firstName\ lastName\ password
 comment3.target=boolean\ newAccount(java.lang.String,\ java.lang.String,\ java.lang.String)
-comment3.text=\r\n\ Creates\ a\ new\ account\ in\ the\ data\ structure.\r\n\ @param\ firstName\ the\ first\ name\ of\ the\ user\r\n\ @param\ lastName\ the\ last\ name\ of\ the\ user\r\n\ @param\ password\ the\ password\ of\ the\ user\\\r\n\ @return\ true\ if\ the\ account\ was\ created,\ false\ if\ not\r\n\ @throws\ java.security.NoSuchAlgorithmException\r\n\ @throws\ java.security.spec.InvalidKeySpecException\r\n
+comment3.text=\r\n\ Creates\ a\ new\ account\ in\ the\ data\ structure.\r\n\ @param\ firstName\ the\ first\ name\ of\ the\ user\r\n\ @param\ lastName\ the\ last\ name\ of\ the\ user\r\n\ @param\ password\ the\ password\ of\ the\ user\r\n\ @return\ true\ if\ the\ account\ was\ created,\ false\ if\ not\r\n\ @throws\ java.security.NoSuchAlgorithmException\r\n\ @throws\ java.security.spec.InvalidKeySpecException\r\n
 comment4.params=i
 comment4.target=void\ setIterations(int)
 comment4.text=\r\n\ Sets\ the\ number\ of\ iterations\ of\ PBKDF2withHmacSHA1\ to\ perform\r\n\ @param\ number\ of\ iterations\r\n\ Postcondition\:\ desiredIterations>\=1000\r\n
@@ -19,7 +19,7 @@ comment5.target=byte[]\ digest(char[],\ byte[],\ int)
 comment5.text=\r\n\ Performs\ PBKDF2withHmacSHA1\ on\ an\ inputer\ and\ a\ salt\ iter\ times\r\n\ @param\ input\ the\ input\r\n\ @param\ salt\ the\ salt\r\n\ @param\ iter\ the\ number\ of\ iterations\r\n\ @return\ the\ result\ of\ the\ stretched\ and\ salted\ hash\r\n
 comment6.params=lastName\ password
 comment6.target=boolean\ validate(java.lang.String,\ java.lang.String)
-comment6.text=\r\n\ Validates\ a\ password.\r\n\ @param\ lastName\ the\ last\ name\ of\ the\ user\r\n\ @param\ password\ the\ user's\ password\r\n\ @return\ true\ if\ the\ password\ is\ correct,\ false\ if\ it\ isn't\r\n\ Postcondition\:\ the\ number\ of\ iterations\ on\ the\ stretched\ hash\ will\ be\ correct\r\n\ @throws\ java.security.NoSuchAlgorithmException\r\n\ @throws\ java.security.spec.InvalidKeySpecException\r\n
+comment6.text=\r\n\ Validates\ a\ password\ and\ changes\ number\ of\ iterations\ if\ neccessary.\r\n\ @param\ lastName\ the\ last\ name\ of\ the\ user\r\n\ @param\ password\ the\ user's\ password\r\n\ @return\ true\ if\ the\ password\ is\ correct,\ false\ if\ it\ isn't\r\n\ Postcondition\:\ the\ number\ of\ iterations\ on\ the\ stretched\ hash\ will\ be\ correct\r\n\ @throws\ java.security.NoSuchAlgorithmException\r\n\ @throws\ java.security.spec.InvalidKeySpecException\r\n
 comment7.params=
 comment7.target=java.lang.String\ getCurrentUser()
 comment7.text=\r\n\ Gets\ the\ name\ of\ the\ current\ user.\r\n\ @return\ the\ name\ of\ the\ current\ user\r\n

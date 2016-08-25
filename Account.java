@@ -93,7 +93,7 @@ public class Account
      * Creates a new account in the data structure.
      * @param firstName the first name of the user
      * @param lastName the last name of the user
-     * @param password the password of the user\
+     * @param password the password of the user
      * @return true if the account was created, false if not
      * @throws java.security.NoSuchAlgorithmException
      * @throws java.security.spec.InvalidKeySpecException
@@ -141,13 +141,13 @@ public class Account
      */
     private static byte[] digest(char[] input, byte[] salt, int iter) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
-        PBEKeySpec spec = new PBEKeySpec(input, salt, iter, 64 * 8); //specify how the stretched hash should be ocontructed
+        PBEKeySpec spec = new PBEKeySpec(input, salt, iter, 64 * 8); //specify how the stretched hash should be coontructed
         SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");//specify the maker
         byte[] hash = skf.generateSecret(spec).getEncoded();
         return hash;
     } 
     /**
-     * Validates a password.
+     * Validates a password and changes number of iterations if neccessary.
      * @param lastName the last name of the user
      * @param password the user's password
      * @return true if the password is correct, false if it isn't

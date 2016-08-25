@@ -28,7 +28,7 @@ public class ButtonEditor extends DefaultCellEditor {
     private int day;
     private int month;
     private int year;
-    private Period[][] periods;
+    //private Period[][] periods;
     private int row;
     private int column;
 
@@ -36,9 +36,9 @@ public class ButtonEditor extends DefaultCellEditor {
  * @param checkBox - Constructs a DefaultCellEditor object that uses a check box.
  * @param periods - the period array that the button is part of 
  */ 
-  public ButtonEditor(JCheckBox checkBox,Period[][] periods) {
+  public ButtonEditor(JCheckBox checkBox,Period[][] pr) {
     super(checkBox);
-    this.periods = periods;
+    //this.periods = pr;
     button = new JButton();
     button.setOpaque(false);
     button.addActionListener(new ActionListener() {
@@ -48,6 +48,7 @@ public class ButtonEditor extends DefaultCellEditor {
     });
   }
 
+  
     @Override
     /**
      * @param table -The JTable the button is set in
@@ -90,7 +91,7 @@ public class ButtonEditor extends DefaultCellEditor {
                 if(label != null){
                     label = name + " - " + className;
                     Reservation reserved = new Reservation(name, className);
-                    periods[column][row].addReservation(reserved);
+                    NewJFrame.pr[column][row].addReservation(reserved);
                     button.setOpaque(false);
                     button.setBackground(Color.red);
                 }        
@@ -101,7 +102,7 @@ public class ButtonEditor extends DefaultCellEditor {
             //(0 - Yes, 1-No, 2-Cancel)
             if(i == 0){
                 label = "OPEN";
-                periods[column][row].removeReservation();
+                NewJFrame.pr[column][row].removeReservation();
             }
             
         } else {
